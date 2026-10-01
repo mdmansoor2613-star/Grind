@@ -1,0 +1,55 @@
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1b2030;--mu:#6b7488;--bd:#e3e7f0;--g:#22c55e;--r:#ef4444;--a:#f59e0b;--ac:#6366f1}
+[data-theme=dark]{--bg:#0e1118;--card:#171b26;--tx:#e8ebf4;--mu:#8b94a8;--bd:#262c3b}
+*{box-sizing:border-box;margin:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--tx);transition:.3s}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5}
+header h1{font-size:1.2rem}header small{color:var(--mu);display:block}
+.hr{display:flex;gap:10px;align-items:center}
+.streak{font-weight:700;background:var(--bg);padding:6px 12px;border-radius:20px;border:1px solid var(--bd)}
+.flame{display:inline-block;animation:fl 1s infinite alternate}
+@keyframes fl{to{transform:scale(1.2) rotate(-6deg)}}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:7px 12px;transition:.2s}
+button:hover{transform:translateY(-2px);box-shadow:0 4px 12px #0002}
+.pri{background:var(--ac);color:#fff;border:0}
+.layout{display:grid;grid-template-columns:220px 1fr;gap:18px;padding:18px;max-width:1200px;margin:auto}
+nav{display:flex;flex-direction:column;gap:6px}
+nav button{text-align:left;padding:10px}
+nav button.on{background:var(--ac);color:#fff}
+nav .bar{margin-top:4px}
+.bar{height:6px;background:var(--bd);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--g);width:0;transition:width .5s}
+.panel{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:16px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tools input{flex:1;min-width:140px}
+input,select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);width:100%}
+.tools input{width:auto}
+.f.on{background:var(--ac);color:#fff}
+#view{animation:in .35s}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.task{display:flex;align-items:center;gap:10px;padding:12px;margin:8px 0;border-radius:10px;background:var(--card);border:1px solid var(--bd);transition:.25s}
+.task:hover{transform:translateX(4px)}
+.task.done{box-shadow:0 0 12px #22c55e88;border-color:var(--g)}
+.task.missed{box-shadow:0 0 12px #ef444488;border-color:var(--r)}
+.task.pending{box-shadow:0 0 12px #f59e0b66;border-color:var(--a)}
+.task .t{flex:1}.task.done .t{text-decoration:line-through;color:var(--mu)}
+.task small{color:var(--mu);display:block}
+.chk{appearance:none;width:24px;height:24px;border:2px solid var(--mu);border-radius:50%;cursor:pointer;display:grid;place-items:center;padding:0}
+.chk:checked{background:var(--g);border-color:var(--g);animation:pop .4s}
+.chk:checked::after{content:"✓";color:#fff;font-weight:700}
+@keyframes pop{50%{transform:scale(1.35)}}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,14px);gap:3px;overflow-x:auto;padding-bottom:6px}
+.heat i{width:14px;height:14px;border-radius:3px;background:var(--bd)}
+.l1{background:#bbf7d0!important}.l2{background:#4ade80!important}.l3{background:#16a34a!important}.l4{background:#166534!important}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+canvas{width:100%;height:160px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{padding:6px 10px;border-radius:20px;border:1px dashed var(--bd);color:var(--mu);font-size:.85rem}
+.badge.got{border:1px solid var(--a);color:var(--a);background:#f59e0b18}
+.modal{position:fixed;inset:0;background:#0008;display:none;place-items:center;z-index:20}
+.modal.show{display:grid}
+.modal form{background:var(--card);padding:20px;border-radius:14px;width:min(380px,92vw);display:grid;gap:10px;animation:in .25s}
+.row{display:flex;gap:8px;justify-content:flex-end}
+#toast{position:fixed;bottom:20px;right:20px;display:grid;gap:8px;z-index:30}
+#toast div{background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:10px;animation:in .3s}
+canvas#cf{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
+@media(max-width:700px){.layout{grid-template-columns:1fr}nav{flex-direction:row;overflow-x:auto}nav button{white-space:nowrap}}

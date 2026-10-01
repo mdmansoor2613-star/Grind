@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>grind with mansoor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div><h1>🎯 Grind With Mansoor-39</h1><small id="date"></small></div>
+  <div class="hr">
+    <span class="streak"><span class="flame">🔥</span> <span id="streak">0</span> day streak</span>
+    <button id="theme">🌓</button>
+    <button class="pri" id="add">+ Add Task</button>
+  </div>
+</header>
+<div class="layout">
+  <nav id="nav"></nav>
+  <main>
+    <div class="panel">
+      <b>Today's progress</b> <span id="dp"></span>
+      <div class="bar"><i id="dbar"></i></div>
+      <div class="tools">
+        <input id="q" placeholder="Search tasks...">
+        <button class="f on" data-f="all">All</button><button class="f" data-f="done">Done</button>
+        <button class="f" data-f="missed">Missed</button><button class="f" data-f="pending">Pending</button>
+      </div>
+    </div>
+    <div id="view"></div>
+    <div class="panel"><b>Activity (last 20 weeks)</b><div class="heat" id="heat"></div></div>
+    <div class="charts">
+      <div class="panel"><b>This week</b><canvas id="wk"></canvas></div>
+      <div class="panel"><b>Last 6 months</b><canvas id="mo"></canvas></div>
+    </div>
+    <div class="panel"><b>Badges</b><div class="badges" id="badges"></div></div>
+  </main>
+</div>
+<div class="modal" id="modal">
+  <form id="form">
+    <h3 id="mt">Add Task</h3>
+    <input id="title" placeholder="Task title" required>
+    <select id="sec"></select>
+    <input id="tdate" type="date" required>
+    <div class="row"><button type="button" id="cancel">Cancel</button><button class="pri">Save</button></div>
+  </form>
+</div>
+<div id="toast"></div>
+<canvas id="cf"></canvas>
+<script src="app.js"></script>
+</body>
+</html>
